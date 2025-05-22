@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select'
 import ButtonAdd from '../../constants/ButtonAdd'
 
-const Header = () => {
+const Header = ({ setAddFedback, counter }) => {
 	return (
 		<div
 			className={
@@ -22,7 +22,7 @@ const Header = () => {
 				</div>
 				<div className='flex items-center gap-2'>
 					<span className='text-[#FFFFFF] font-[700] text-[18px] leading-[100%]'>
-						0
+						{counter}
 					</span>
 					<p className='text-white font-[700] text-[18px] leading-[100%] '>
 						Suggestions
@@ -57,7 +57,14 @@ const Header = () => {
 					</SelectContent>
 				</Select>
 			</div>
-			<ButtonAdd style={'absolute right-4'}>+ Add Feedback</ButtonAdd>
+			<ButtonAdd
+				style={'absolute right-4'}
+				click={() => {
+					setAddFedback(true)
+				}}
+			>
+				+ Add Feedback
+			</ButtonAdd>
 		</div>
 	)
 }
